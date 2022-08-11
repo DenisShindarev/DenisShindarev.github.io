@@ -1,2 +1,2 @@
-# DenisShindarev.github.io
+# Денис Шиндарёв
 Мой первый проект
