@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+}
+nav {
+    background: #344051;
+    width: 100%;
+    height: 60px;
+}
+.logo {
+    color: #ffffff;
+    line-height: 60px;
+    font-size: 27px;
+    padding-left: 388px;
+    float: left;
+}
+.menu {
+    padding-left: 433px;
+    float: left;
+}
+.menu li {
+    float: left;
+    line-height: 60px;
+    font-size: 17px;
+    color: #fff;
+    margin-right: 40px;
+    text-transform: uppercase;
+}
+.main {
+    width: 100%;
+    background: url(../img/boy.png) 90% 100%/auto 90% no-repeat, url(../img/mainback.jpg) center/cover no-repeat;
+    height: calc(100% - 60px);
+}
+.title_conteiner {
+    float: left;
+    margin: 431px 0px 0px 404px;
+    text-align: center;
+    color: #2c384a;
+}
+.title_conteiner h1 {
+    font-size: 60px;
+    font-weight: 700;
+}
+.title_conteiner h4 {
+    font-size: 20px;
+    color: #79818d;
+    margin-top: 40px;
+}
+.title_conteiner input {
+    height: 38px;
+    text-align: center;
+    border: 3px solid #6d7682;
+    border-radius: 5px;
+    background: none;
+    color: #6d7682;
+    font-size: 15px;
+    padding: 0px 15px;
+    margin: 55px 13px 0px 13px;
+    font-weight: 600;
+
+}
+
+.description_conteiner {
+    width: 100%;
+    height: 716px;
+}
+.about_me h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 108px;
+}
+.about_me hr {
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 70px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.about_me img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px; 
+}
+.about_me p {
+    margin: 0 auto;
+    color: #626976;
+    padding: 30px 0px 20px 0px;
+    width: 750px;
+    line-height: 18px;
+}
+.about_me input {
+    display: block;
+    margin: 0 auto;
+    height: 35px;
+    text-align: center;
+    border: 3px solid #6d7682;
+    border-radius: 5px;
+    background: none;
+    color: #6d7682;
+    font-size: 15px;
+    padding: 0px 25px;
+    font-weight: 600;
+    margin-top: 35px;
+}
+.skills_conteiner {
+    width: 100%;
+    background: url(../img/skils.jpg) center/cover no-repeat;
+    height: 521px;
+}
+.what_i_can_do h2{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 108px;
+}
+.what_i_can_do hr {
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 70px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.what_i_can_do {
+    width: 950px;
+    margin: 0 auto;
+}
+.skills {
+    text-align: center;
+    float: left;
+    width: 233px;
+    margin-top: 102px;
+}
