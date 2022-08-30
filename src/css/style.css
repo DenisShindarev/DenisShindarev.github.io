@@ -1,10 +1,75 @@
 body {
     font-family: Arial, sans-serif;
 }
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #e0e0e0;
+  z-index: 1001;
+}
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color: #337ab7;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bounce {
+
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
 nav {
     background: #344051;
     width: 100%;
     height: 60px;
+    position: fixed;
 }
 .logo {
     color: #ffffff;
@@ -12,6 +77,18 @@ nav {
     font-size: 27px;
     padding-left: 388px;
     float: left;
+    -webkit-animation: name 3s ease;
+    -o-animation: name 3s ease;
+    animation: name 1.8s ease;
+    cursor: pointer;
+}
+@keyframes name {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 .menu {
     padding-left: 433px;
@@ -24,17 +101,67 @@ nav {
     color: #fff;
     margin-right: 40px;
     text-transform: uppercase;
+    -webkit-animation: navigation 0.5s ease forwards;
+    -o-animation: navigation 0.5s ease forwards;
+    animation: navigation 0.5s ease forwards;
+    opacity: 0;
+
+}
+.menu li a:visited {
+    color: #fff;
+}
+.menu li a {
+    transition: all 0.2s;
+    color: #fff;
+    transform: scale(1);
+    display: inline-block;
+}
+.menu li a:hover {
+    color: #eb8f17;
+
+}
+.menu li a:active {
+    transform: scale(1.2);
+}
+.menu li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.menu li:nth-child(3) {
+    animation-delay: 0.4s;    
+}
+.menu li:nth-child(4) {
+    animation-delay: 0.6s;    
+}
+.menu li:nth-child(5) {
+    animation-delay: 0.8s;    
+}
+.menu li:nth-child(6) {
+    animation-delay: 1.0s;    
+}
+@keyframes navigation {
+    from {
+        opacity: 0;
+        margin-left: -800px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 0px;
+    }
 }
 .main {
     width: 100%;
+    height: 1017px;
     background: url(../img/boy.png) 90% 100%/auto 90% no-repeat, url(../img/mainback.jpg) center/cover no-repeat;
-    height: calc(100% - 60px);
+    height: calc(100%);
 }
 .title_conteiner {
     float: left;
     margin: 431px 0px 0px 404px;
     text-align: center;
     color: #2c384a;
+    -webkit-animation: discription 2s ease;
+    -o-animation: discription 2s ease;
+    animation: discription 2s ease;
 }
 .title_conteiner h1 {
     font-size: 60px;
@@ -56,11 +183,34 @@ nav {
     padding: 0px 15px;
     margin: 55px 13px 0px 13px;
     font-weight: 600;
-
+}
+.title_conteiner input {
+    transition: all 0.2s;
+}
+.title_conteiner input:hover {
+    transition: all 0.5s;
+    background: #eb8f17;
+    color: #fff;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.title_conteiner input:active {
+    transform: scale(1.3);
+}
+@keyframes discription {
+    from {
+        opacity: 0;
+        margin-left: -500px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 404px;
+    }
 }
 
 .description_conteiner {
     width: 100%;
+    background-color: #fff;
     height: 716px;
 }
 .about_me h2 {
@@ -70,6 +220,20 @@ nav {
     text-transform: uppercase;
     margin-top: 108px;
     color: #323e4f;
+    -webkit-animation: about__me 1s ease;
+    -o-animation: about__me 1s ease;
+    animation: about__me 1s ease;
+}
+
+@keyframes about__me {
+    from {
+        opacity: 0;
+        margin-top: -500px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 108px;
+    }
 }
 .about_me hr {
     height: 4px;
@@ -82,7 +246,20 @@ nav {
 .about_me img {
     display: block;
     margin: 0 auto;
-    margin-top: 60px; 
+    margin-top: 60px;
+    -webkit-animation: img 2s ease;
+    -o-animation: img 2s ease;
+    animation: img 2s ease;
+}
+@keyframes img {
+    from {
+        opacity: 0;
+        margin-top: -500px;
+    }
+    to {
+       opacity: 1; 
+    margin-top: 60px;
+    }
 }
 .about_me p {
     margin: 0 auto;
@@ -90,6 +267,19 @@ nav {
     padding: 30px 0px 20px 0px;
     width: 750px;
     line-height: 18px;
+    -webkit-animation: title 3s ease;
+    -o-animation: title 3s ease;
+    animation: title 3s ease;
+}
+@keyframes title {
+    from {
+        opacity: 0;
+        margin-top: -500px;
+    }
+    to {
+       opacity: 1; 
+        margin-top: 0px;
+    }    
 }
 .about_me input {
     display: block;
@@ -104,10 +294,33 @@ nav {
     padding: 0px 25px;
     font-weight: 600;
     margin-top: 35px;
+    -webkit-animation: input 4s ease;
+    -o-animation: input 4s ease;
+    animation: input 4s ease;
+}
+.about_me input:hover{
+    transition: all 0.5s;
+    background: #eb8f17;
+    color: #fff;
+    transform: scale(1.1);
+    cursor: pointer;    
+}
+.about_me input:active{
+    transform: scale(1.3);    
+}
+@keyframes input {
+    from {
+        opacity: 0;
+        margin-top: -500px;
+    }
+    to {
+       opacity: 1; 
+        margin-top: 35px;
+    }    
 }
 .skills_conteiner {
     width: 100%;
-    background: url(../img/skils.jpg) center/cover no-repeat;
+    background: url(../img/skils.jpg) center/cover fixed no-repeat;
     height: 521px;
 }
 .what_i_can_do h2{
@@ -117,6 +330,21 @@ nav {
     text-transform: uppercase;
     padding-top: 108px;
     color: #323e4f;
+   -webkit-animation: title_what_i_can_do 1s ease;
+    -o-animation: title_what_i_can_do 1s ease;
+    animation: title_what_i_can_do 1s ease; 
+}
+ 
+}
+@keyframes title_what_i_can_do {
+    from {
+        opacity: 0;
+        margin-top: -200px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 108px;
+    }    
 }
 .what_i_can_do hr {
     height: 4px;
@@ -136,6 +364,9 @@ nav {
     width: 233px;
     margin-top: 102px;
     margin-left: 40px;
+    -webkit-animation: skills 1.7s ease;
+    -o-animation: skills 1.7s ease;
+    animation: skills 1.7s ease;
 }
 .newClass {
     margin-left: 40px;
@@ -148,6 +379,16 @@ nav {
 }
 .skills img {
     height: 47px;
+}
+@keyframes skills {
+    from {
+        opacity: 0;
+        margin-left: -100px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 40px;
+    }
 }
 .skills p {
     color: #616876;
@@ -232,7 +473,16 @@ nav {
     font-weight: 700;
     font-size: 17px;
 }
-
+.button input:hover {
+    transition: all 0.5s;
+    background: #63b5ae;
+    color: #fff;
+    transform: scale(1.1);
+    cursor: pointer;   
+}
+.button input:active {
+    transform: scale(1.3);    
+}
 .select {
     display: block;
     width: 890px;
@@ -277,7 +527,7 @@ nav {
 }
 .statistics_conteiner {
     width: 100%;
-    background: url(../img/stat.jpg) center/cover no-repeat;
+    background: url(../img/stat.jpg) center/cover fixed no-repeat;
     height: 492px;
     margin-top: 150px;
 }
@@ -288,7 +538,8 @@ nav {
     text-transform: uppercase;
     padding-top: 108px;
     color: #323e4f;
-}
+}   
+
 .statistics hr {
     height: 4px;
     border: none;
@@ -307,6 +558,9 @@ nav {
     width: 233px;
     margin-top: 85px;
     margin-left: 20px;
+    -webkit-animation: quantity 1.7s ease;
+    -o-animation: ;
+    animation: ;
 }
 .quantity h3 {
     font-size: 24px;
@@ -323,6 +577,16 @@ nav {
     font-weight: 700;
     padding-top: 25px;
 }
+@keyframes quantity {
+     from {
+        opacity: 0;
+        margin-left: -100px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 20px;
+    }   
+}
 .customer_reviews {
     width: 100%;
     height: 590px;
@@ -333,7 +597,7 @@ nav {
     font-weight: 700;
     text-transform: uppercase;
     padding-top: 108px;
-    color: #323e4f;    
+    color: #323e4f;
 }
 .reviews hr {
     height: 4px;
@@ -347,6 +611,19 @@ nav {
     display: block;
     margin: 0 auto;
     margin-top: 50px;
+    -webkit-animation: reviews_img 1.7s ease;
+    -o-animation: reviews_img 1.7s ease;
+    animation: reviews_img 1.7s ease;
+}
+@keyframes reviews_img {
+    from {
+        opacity: 0;
+        margin-top: -200px;
+    }
+    to {
+        opacity: 1; 
+        margin-top: 50px;
+    }
 }
 .reviews p {
     font-size: 18px;
@@ -354,9 +631,7 @@ nav {
     margin-top: 35px;
     color: #243042;
 }
-.reviews span {
-    font-weight: 900;
-}
+
 .input {
     margin-left: 952px;
 }
@@ -403,6 +678,10 @@ nav {
     text-align: center;
     margin-right: 65px;
 }
+.sign:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
 .clear {
     clear: left;
 }
@@ -429,6 +708,19 @@ nav {
     margin-right: 30px;
     margin-top: 45px;
 }
+.input_sumbit input:hover {
+    transition: all 0.5s;
+    background: #eb8f17;
+    color: #fff;
+    transform: scale(1.1);
+    cursor: pointer;    
+}
+.input_sumbit input:active {
+     transform: scale(1.3);   
+}
+.new_input input:hover{
+    transform: scale(1.1);
+}
 .claer {
     clear: left;
 }
@@ -450,6 +742,9 @@ nav {
     margin-top: 15px;
     height: 95px;
     padding: 10px 0px 0px 20px;
+}
+.textarea textarea:hover {
+    transform: scale(1.1);
 }
 .input_sumbit input {
     border: 3px solid #fff;
